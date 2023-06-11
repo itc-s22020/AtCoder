@@ -1,3 +1,5 @@
+###解説コードをpythonで実装 AC20
+
 #リスト二分探索
 from bisect import bisect_left
 
