@@ -7,7 +7,7 @@ def mkGraph(n,m,T):
     for _ in range(m):
         a, b = map(int, input().split())
         g[a-1].append(b)
-        if (T): g[b-1].append(a) #有形グラフの場合はコメントアウト
+        if (T): g[b-1].append(a) #無形グラフならappend
     return g
 
 #深さ優先探索
@@ -18,9 +18,12 @@ def DFS(g, v):
     # v から到達可能な next_v について
     for next_v in g[v-1]:
         if (seen[next_v-1]): continue # next_v が探索済ならスルー
-        DFS(G, next_v) #再帰処理
+        DFS(g, next_v) #再帰処理
 
+#頂点sが頂点vに到達可能か
+def StoV(g,s,v):
+    DFS(g, s)
+    print(("NO", "YES")[seen[v-1]])
 
-DFS(G, 1)
-print(("NO", "YES")[seen[9]]) #頂点0から頂点9に辿り着けるか
-print(seen)
+StoV(G,1,10) #頂点1から頂点10に到達可能？
+StoV(G,2,10) #頂点2から頂点10に到達可能？
