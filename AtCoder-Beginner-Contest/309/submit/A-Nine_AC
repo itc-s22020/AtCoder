@@ -1,0 +1,12 @@
+#[AC] 195Byte 26ms 9040KB Python3
+A, B = map(int, input().split())
+
+def check(a, b):
+    if a in [2,5,8]:
+        if a-1 == b or a+1 == b:
+            print("Yes")
+            exit()
+
+check(A, B)
+check(B, A)
+print("No")
